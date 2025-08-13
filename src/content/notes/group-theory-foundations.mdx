@@ -1,7 +1,8 @@
 ---
 title: "群论基础：从对称性到抽象结构"
 description: "深入探索群论的基本概念，理解对称性如何抽象为数学结构，以及群在现代数学中的核心地位"
-date: 2024-12-02
+pubDate: 2024-12-02
+published: true
 ---
 
 # 群论基础：从对称性到抽象结构
@@ -37,7 +38,9 @@ date: 2024-12-02
 最重要的有限群之一，由 $n$ 个元素的所有置换组成。
 
 对于 $S_3$，我们有 6 个置换：
-$$S_3 = \{e, (12), (13), (23), (123), (132)\}$$
+$$
+S_3 = \{e, (12), (13), (23), (123), (132)\}
+$$
 
 其中：
 - $e$ 是恒等置换
@@ -47,7 +50,9 @@ $$S_3 = \{e, (12), (13), (23), (123), (132)\}$$
 ## 同态与同构：群之间的关系
 
 两个群之间的**同态** $f: G \to H$ 是保持运算结构的映射：
-$$f(ab) = f(a)f(b), \quad \forall a, b \in G$$
+$$
+f(ab) = f(a)f(b), \quad \forall a, b \in G
+$$
 
 如果同态是双射，则称为**同构**，记作 $G \cong H$。
 
@@ -61,7 +66,9 @@ $$f(ab) = f(a)f(b), \quad \forall a, b \in G$$
 ### 经典同构定理
 
 **第一同构定理**：设 $f: G \to H$ 是群同态，则
-$$G/\ker(f) \cong \text{Im}(f)$$
+$$
+G/\ker(f) \cong \text{Im}(f)
+$$
 
 这个定理告诉我们，每个同态都可以分解为：群到商群的自然投影，商群到像的同构，以及像到目标群的包含映射。
 
@@ -76,7 +83,9 @@ $$G/\ker(f) \cong \text{Im}(f)$$
 ### 正规子群与商群
 
 子群 $N \triangleleft G$ 是**正规子群**，如果：
-$$\forall g \in G, \forall n \in N, gng^{-1} \in N$$
+$$
+\forall g \in G, \forall n \in N, gng^{-1} \in N
+$$
 
 当 $N$ 是正规子群时，我们可以构造**商群** $G/N$：
 - 元素：陪集 $\{gN : g \in G\}$
@@ -85,7 +94,9 @@ $$\forall g \in G, \forall n \in N, gng^{-1} \in N$$
 ## 群作用：连接抽象与具体
 
 群作用提供了理解群结构的强大工具。群 $G$ 在集合 $X$ 上的**作用**是映射：
-$$G \times X \to X, \quad (g, x) \mapsto g \cdot x$$
+$$
+G \times X \to X, \quad (g, x) \mapsto g \cdot x
+$$
 
 满足：
 1. $e \cdot x = x$
@@ -94,7 +105,9 @@ $$G \times X \to X, \quad (g, x) \mapsto g \cdot x$$
 ### 轨道-稳定子定理
 
 对于群作用 $G \curvearrowright X$ 和 $x \in X$：
-$$|G| = |\text{Orb}(x)| \cdot |\text{Stab}(x)|$$
+$$
+|G| = |\text{Orb}(x)| \cdot |\text{Stab}(x)|
+$$
 
 其中：
 - $\text{Orb}(x) = \{g \cdot x : g \in G\}$ 是轨道
@@ -127,10 +140,14 @@ $$|G| = |\text{Orb}(x)| \cdot |\text{Stab}(x)|$$
 ### 群的表示
 
 群 $G$ 的**表示**由生成元集合和关系集合给出：
-$$G = \langle S \mid R \rangle$$
+$$
+G = \langle S \mid R \rangle
+$$
 
 例如，二面体群 $D_n$：
-$$D_n = \langle r, s \mid r^n = s^2 = e, srs^{-1} = r^{-1} \rangle$$
+$$
+D_n = \langle r, s \mid r^n = s^2 = e, srs^{-1} = r^{-1} \rangle
+$$
 
 ## 计算群论中的算法
 
@@ -159,26 +176,3 @@ def is_normal_subgroup(subgroup, group):
             if conjugate not in subgroup:
                 return False
     return True
-```
-
-## 群论的现代应用
-
-### 1. 密码学
-椭圆曲线密码学基于椭圆曲线上点构成的阿贝尔群。
-
-### 2. 物理学
-粒子物理中的对称性用群论语言描述，如 $SU(3)$ 群描述强相互作用。
-
-### 3. 化学
-分子的对称性用点群描述，预测分子的光谱性质。
-
-## 进一步的方向
-
-群论仅仅是抽象代数的开始。从群论出发，我们可以探索：
-
-- **环论**：研究加法和乘法双运算的结构
-- **域论**：研究除法可行的代数结构
-- **模论**：线性代数的推广
-- **范畴论**：数学结构之间映射的理论
-
-群论的美妙之处在于它将具体的对称性抽象为纯粹的代数结构，却又能通过具体的实现回到应用中去。这种抽象与具体的统一，正是现代数学的精神所在。
