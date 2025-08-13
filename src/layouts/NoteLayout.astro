@@ -21,6 +21,7 @@ const link = `${import.meta.env.SITE}/notes/${slug}`;
 
 <style>
   /* TODO: Get rid of global using */
+  
   article :global(p, h2, h3) {
     margin: 1em 0 1em 0;
   }
@@ -100,6 +101,11 @@ const link = `${import.meta.env.SITE}/notes/${slug}`;
     max-height: 50vh;
     object-fit: cover;
   }
+  article :global(*) {
+  font-size: 16px; /* 或 1rem */
+  line-height: 1.6; /* 可选，增加可读性 */
+}
+
 </style>
 
 
