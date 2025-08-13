@@ -1,0 +1,143 @@
+---
+title: "MDX 语法指南：在 Markdown 中嵌入 React 组件"
+description: "全面了解 MDX 语法，学会在 Markdown 中使用 JSX 组件、数学公式和交互元素"
+date: 2024-12-01
+---
+
+# MDX 语法指南
+
+MDX 是 Markdown 的超集，允许你在 Markdown 文档中直接编写和使用 JSX 组件。这使得技术文档既能保持 Markdown 的简洁性，又能拥有 React 的交互能力。
+
+## 基础 Markdown 语法
+
+MDX 完全兼容标准 Markdown 语法：
+
+```markdown
+# 一级标题
+## 二级标题
+
+**粗体文本** 和 *斜体文本*
+
+- 无序列表项 1
+- 无序列表项 2
+
+1. 有序列表项 1
+2. 有序列表项 2
+
+[链接文本](https://example.com)
+```
+
+## 代码块语法高亮
+
+MDX 支持语法高亮的代码块：
+
+```javascript
+// JavaScript 代码示例
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(10)); // 输出: 55
+```
+
+```python
+# Python 代码示例
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    
+    return quicksort(left) + middle + quicksort(right)
+```
+
+## 数学公式支持
+
+在 MDX 中可以使用 LaTeX 语法编写数学公式：
+
+### 行内公式
+质能方程：$E = mc^2$
+
+### 块级公式
+欧拉恒等式：
+$$e^{i\pi} + 1 = 0$$
+
+二次公式：
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+
+泰勒级数展开：
+$$f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n$$
+
+## JSX 组件嵌入
+
+MDX 的强大之处在于可以直接嵌入 JSX 组件：
+
+```jsx
+export const HighlightBox = ({ children, color = "blue" }) => (
+  <div style={{
+    padding: "1rem",
+    backgroundColor: `var(--${color}-50)`,
+    border: `2px solid var(--${color}-200)`,
+    borderRadius: "8px",
+    margin: "1rem 0"
+  }}>
+    {children}
+  </div>
+);
+
+<HighlightBox color="green">
+  这是一个自定义的高亮框组件！你可以在 MDX 中直接使用它。
+</HighlightBox>
+```
+
+## 表格语法
+
+| 语言       | 类型     | 用途           |
+|------------|----------|----------------|
+| JavaScript | 动态     | Web 开发       |
+| Python     | 动态     | 数据科学、AI   |
+| Rust       | 静态     | 系统编程       |
+| Haskell    | 函数式   | 学术研究       |
+
+## Front Matter
+
+每个 MDX 文件都可以包含 Front Matter 来定义元数据：
+
+```yaml
+---
+title: "文章标题"
+description: "文章描述"
+date: 2024-12-01
+tags: ["MDX", "React", "Markdown"]
+---
+```
+
+## 最佳实践
+
+1. **保持结构清晰**：合理使用标题层级，保持文档结构清晰
+2. **代码块标注语言**：总是为代码块指定编程语言以获得语法高亮
+3. **数学公式格式化**：使用适当的空格和换行使公式更易读
+4. **组件复用**：将常用的 JSX 组件提取到单独的文件中
+5. **元数据完整**：确保 Front Matter 包含必要的元数据信息
+
+## 进阶技巧
+
+### 导入外部组件
+```jsx
+import { Chart } from '@/components/Chart'
+
+<Chart data={[1, 2, 3, 4, 5]} />
+```
+
+### 条件渲染
+```jsx
+{process.env.NODE_ENV === 'development' && (
+  <div>这只在开发环境中显示</div>
+)}
+```
+
+MDX 让技术写作变得更加灵活和强大，特别适合需要展示代码、数学公式和交互元素的技术博客。
