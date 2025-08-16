@@ -4,7 +4,7 @@ const notes = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    description: z.string(),
+    // description: z.string(),
     pubDate: z.coerce.date(),
     slug: z.string().optional(),
     published: z.boolean().default(false),
