@@ -3,4 +3,6 @@ title: "备忘录"
 pubDate: 2025-08-12
 published: true
 ---
-https://www.heywhale.com/mw/project/689709e023583639fc675b5c
+[CS336 Reproducing LLM from scratch]https://www.heywhale.com/mw/project/689709e023583639fc675b5c)
+[complex analysis](https://zhangshenxing.github.io/teaching/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0%E4%B8%8E%E7%A7%AF%E5%88%86%E5%8F%98%E6%8D%A2/chapter/1.pdf)
+
