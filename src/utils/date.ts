@@ -16,12 +16,13 @@ function formatUpdatedDate(date?: Date): string {
   if (!date) return 'Unknown date';
 
   const dateTimeFormat = new Intl.DateTimeFormat('en-US', {
-    timeZone: 'Europe/Berlin',
+    // timeZone: 'Europe/Berlin',
+    timeZone: 'Asia/Shanghai', // 改这里
     dateStyle: 'long',
     timeStyle: 'short'
   });
 
-  return `${dateTimeFormat.format(date)} [CET]`;
+  return `${dateTimeFormat.format(date)} [UTC+8]`;
 }
 
 export { formatDate, formatUpdatedDate };
